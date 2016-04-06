@@ -88,6 +88,17 @@
 								<td><div class="rating" data-rating="5"></div></td>
 							</tr>
 							<tr>
+								<td>Input checkbox</td>
+								<td>	
+									<div class="form-check">
+										<input type="checkbox" id="check">
+										<label for="check">Checkbox</label>
+									</div>
+								</td>
+								<td><a href="#modal-checkbox" class="fancybox">Перейти</a></td>
+								<td><div class="rating" data-rating="5"></div></td>
+							</tr>
+							<tr>
 								<td>Create CSS</td>
 								<td><a href="img/createcss.png" class="fancybox"><img src="img/createcss.png"></a></td>
 								<td><a href="http://www.createcss3.com/" target="_blank">Перейти</a></td>
@@ -233,6 +244,15 @@ $('.custom-file-input').on('change', function() {
     $(this).prev('.mask').find('.fileInputText').val(realVal);
   }
 });
+</pre>
+</div>
+
+<div id="modal-checkbox" class="modal">
+<h3>CSS</h3>
+<pre>
+input[type='checkbox']{width: inherit;height: inherit;position: absolute;left: -9999px;}
+input[type='checkbox'] + label{background: url('../img/icons/checkbox.png') 0 0 no-repeat;float: left;color: #000;font-size: 14px;line-height: 22px;padding-left: 30px;cursor: pointer;}
+input[type='checkbox']:checked + label{background: url('../img/icons/checkbox-active.png') 0 0 no-repeat;}
 </pre>
 </div>
 
