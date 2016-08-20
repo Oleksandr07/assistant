@@ -99,6 +99,25 @@
 								<td><div class="rating" data-rating="5"></div></td>
 							</tr>
 							<tr>
+								<td>Search</td>
+								<td>
+									<div class="form-group">
+										<input id="search" type="text" name="search" placeholder="Поиск" required="">
+										<div class="search-list">
+											<ul>
+												<li>HTML</li>
+												<li>CSS</li>
+												<li>JavaScript</li>
+												<li>JQuery</li>
+												<li>PHP</li>
+											</ul>
+										</div>
+									</div>
+								</td>
+								<td><a href="#modal-search" class="fancybox">Перейти</a></td>
+								<td><div class="rating" data-rating="5"></div></td>
+							</tr>
+							<tr>
 								<td>Create CSS</td>
 								<td><a href="img/createcss.png" class="fancybox"><img src="img/createcss.png"></a></td>
 								<td><a href="http://www.createcss3.com/" target="_blank">Перейти</a></td>
@@ -126,6 +145,12 @@
 								<td>Tooltipster</td>
 								<td><a href="img/tooltipster.jpg" class="fancybox"><img src="img/tooltipster.jpg"></a></td>
 								<td><a href="http://iamceege.github.io/tooltipster/" target="_blank">Перейти</a></td>
+								<td><div class="rating" data-rating="5"></div></td>
+							</tr>
+							<tr>
+								<td>Parallax Scrolling</td>
+								<td><a href="img/parallax.jpg" class="fancybox"><img src="img/parallax.jpg"></a></td>
+								<td><a href="http://pixelcog.github.io/parallax.js/" target="_blank">Перейти</a></td>
 								<td><div class="rating" data-rating="5"></div></td>
 							</tr>
 							<tr>
@@ -182,12 +207,44 @@
 								<td><a href="http://underscores.me/" target="_blank">Перейти</a></td>
 								<td><div class="rating" data-rating="5"></div></td>
 							</tr>
-							<!-- <tr>
+							<tr>
+								<td>Waypoints <br/>(прокрутка і подія)</td>
+								<td><a href="img/waypoints.jpg" class="fancybox"><img src="img/waypoints.jpg"></a></td>
+								<td><a href="http://imakewebthings.com/waypoints/" target="_blank">Перейти</a></td>
+								<td><div class="rating" data-rating="4"></div></td>
+							</tr>
+							<tr>
+								<td>Counter Up <br/>(считалка)</td>
+								<td><a href="img/counter.png" class="fancybox"><img src="img/counter.png"></a></td>
+								<td><a href="http://bfintal.github.io/Counter-Up/demo/demo.html" target="_blank">Перейти</a></td>
+								<td><div class="rating" data-rating="4"></div></td>
+							</tr>
+							<tr>
+								<td>slimScroll (прокрутка)</td>
+								<td><a href="" class="fancybox"><img src=""></a></td>
+								<td><a href="http://rocha.la/jQuery-slimScroll/" target="_blank">Перейти</a></td>
+								<td><div class="rating" data-rating="4"></div></td>
+							</tr>
+							<tr>
+								<td>Typed (ефект друкування тексту)</td>
+								<td><a href="img/typed.jpg" class="fancybox"><img src="img/typed.jpg"></a></td>
+								<td><a href="http://www.mattboldt.com/demos/typed-js/" target="_blank">Перейти</a></td>
+								<td><div class="rating" data-rating="5"></div></td>
+							</tr>
+							<tr>
+								<td>Липкий блок</td>
+								<td><a href="img/airsticky.jpg" class="fancybox"><img src="img/airsticky.jpg"></a></td>
+								<td><a href="http://postovoy.net/jquery-plagin-fiksiruyuschegosya-lipkogo-bloka.html" target="_blank">Перейти</a></td>
+								<td><div class="rating" data-rating="5"></div></td>
+							</tr> 
+							<!-- 
+							<tr>
 								<td>назва</td>
 								<td><a href="" class="fancybox"><img src=""></a></td>
 								<td><a href="" target="_blank">Перейти</a></td>
 								<td><div class="rating" data-rating="5"></div></td>
-							</tr> -->
+							</tr> 
+							-->
 						</tbody>
 					</table>
 				</div>
@@ -253,6 +310,52 @@ $('.custom-file-input').on('change', function() {
 input[type='checkbox']{width: inherit;height: inherit;position: absolute;left: -9999px;}
 input[type='checkbox'] + label{background: url('../img/icons/checkbox.png') 0 0 no-repeat;float: left;color: #000;font-size: 14px;line-height: 22px;padding-left: 30px;cursor: pointer;}
 input[type='checkbox']:checked + label{background: url('../img/icons/checkbox-active.png') 0 0 no-repeat;}
+</pre>
+</div>
+
+<div id="modal-search" class="modal">
+<h3>CSS</h3>
+<pre>
+.search-list{position: absolute;display: none;background: #fff;top: 30px;left: 0;width: 100%;max-height: 152px;z-index: 10;overflow-y: auto;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+.search-list li{font-size: 14px;line-height: 18px;border: 1px solid #999;padding: 5px 10px;cursor: pointer;}
+.search-list li:hover, .search-list li.active{background: #FFB300;}
+</pre>
+<br/>
+<h3>JQuery</h3>
+<pre>
+$('.search-list li').click(function(event) {
+	$('#search').val($(this).text());
+	if (!$(this).hasClass('active')) {
+		$('.search-list ul li').removeClass('active');
+		$(this).addClass('active');
+	} 
+	else {
+		$(this).removeClass('active');
+		$('#recipient-search').val('');
+	}
+});
+$('#search').focus(function(event) {
+	$('.search-list').slideDown(300);
+});
+$('#search').blur(function(event) {
+	$('.search-list').slideUp(300);
+});
+$('#search').keyup(function(event) {
+	var str = $(this).val().toLowerCase();
+	if (str == '') {
+		$('.search-list li').removeClass('active')
+	};
+	$('.search-list li').removeClass('active');
+	$('.search-list li').each(function() {
+		var recipientName = $(this).text().toLowerCase().indexOf(str);
+		if (recipientName >= 0) {
+			$(this).show();
+		} 
+		else {
+			$(this).hide();
+		}
+	});
+});
 </pre>
 </div>
 

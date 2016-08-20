@@ -221,6 +221,9 @@ h2{position: relative;font-size: 30px;text-align: center;}
 
 
 /*--------------------checkbox---------------*/
+.form-group{
+	position: relative;
+}
 .form-check{
 	display: inline-block;
 	vertical-align: top;
@@ -244,6 +247,32 @@ input[type='checkbox'] + label{
 input[type='checkbox']:checked + label{
 	background: url('../img/icons/checkbox-active.png') 0 0 no-repeat;
 }
+
+/*--------------------search---------------*/
+.search-list{
+	position: absolute;
+	display: none;
+	background: #fff;
+	top: 30px;
+	left: 0;
+	width: 100%;
+	max-height: 152px;
+	z-index: 10;
+	overflow-y: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+	.search-list li{
+		font-size: 14px;
+		line-height: 18px;
+		border: 1px solid #999;
+		padding: 5px 10px;
+		cursor: pointer;
+	}
+		.search-list li:hover, .search-list li.active{
+			background: #FFB300;
+		}
 /*--------------------main---------------*/
 
 /*--------------------footer---------------*/

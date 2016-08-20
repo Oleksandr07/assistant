@@ -81,5 +81,40 @@ $(function(){
         }
     });
 
+	//---------------------------        search        ---------------------------
+    $('.search-list li').click(function(event) {
+    	$('#search').val($(this).text());
+    	if (!$(this).hasClass('active')) {
+    		$('.search-list ul li').removeClass('active');
+    		$(this).addClass('active');
+    	} 
+    	else {
+    		$(this).removeClass('active');
+    		$('#recipient-search').val('');
+    	}
+    });
+    $('#search').focus(function(event) {
+    	$('.search-list').slideDown(300);
+    });
+    $('#search').blur(function(event) {
+    	$('.search-list').slideUp(300);
+    });
+	$('#search').keyup(function(event) {
+    	var str = $(this).val().toLowerCase();
+    	if (str == '') {
+    		$('.search-list li').removeClass('active')
+    	};
+    	$('.search-list li').removeClass('active');
+    	$('.search-list li').each(function() {
+    		var recipientName = $(this).text().toLowerCase().indexOf(str);
+    		if (recipientName >= 0) {
+    			$(this).show();
+    		} 
+    		else {
+    			$(this).hide();
+    		}
+    	});
+    });
+
 
 });
